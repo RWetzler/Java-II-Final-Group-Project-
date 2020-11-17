@@ -6,6 +6,6 @@ import pet.beans.Owner;
 
 
 
-public interface ContactRepository extends JpaRepository<Owner, Long>{
+public interface OwnerRepository extends JpaRepository<Owner, Long>{
 
 }
