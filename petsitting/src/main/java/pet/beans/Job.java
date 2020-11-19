@@ -19,8 +19,8 @@ public class Job {
 	private long jobId;
 	@Autowired
 	private Owner owner;
-	@Autowired
-	private Sitter sitter;
+	//@Autowired
+	//private Sitter sitter;
 	private int rating;
 	private String feedbackToSitter;
 	private String feedbackToOwner;
