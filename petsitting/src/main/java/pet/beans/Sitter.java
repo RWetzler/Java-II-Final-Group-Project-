@@ -4,17 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-
-
-
 @Entity
-public class Owner {
+public class Sitter {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long ownerId;
+	private long sitterId;
+	
 	private String firstName;
-	private String lastName;
+	private  String lastName;
 	private String userName;
 	private String passWord;
 	/*@Autowired
@@ -23,12 +20,14 @@ public class Owner {
 	private String phone;
 	private String email;
 	private String miscContact;
-	private String dogNeeds;
-	public long getOwnerId() {
-		return ownerId;
+	private String certifacctions;
+	private int maxPets;
+	private double averageRating;
+	public long getSitterId() {
+		return sitterId;
 	}
-	public void setOwnerId(long ownerId) {
-		this.ownerId = ownerId;
+	public void setSitterId(long sitterId) {
+		this.sitterId = sitterId;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -72,10 +71,23 @@ public class Owner {
 	public void setMiscContact(String miscContact) {
 		this.miscContact = miscContact;
 	}
-	public String getDogNeeds() {
-		return dogNeeds;
+	public String getCertifacctions() {
+		return certifacctions;
 	}
-	public void setDogNeeds(String dogNeeds) {
-		this.dogNeeds = dogNeeds;
+	public void setCertifacctions(String certifacctions) {
+		this.certifacctions = certifacctions;
 	}
+	public int getMaxPets() {
+		return maxPets;
+	}
+	public void setMaxPets(int maxPets) {
+		this.maxPets = maxPets;
+	}
+	public double getAverageRating() {
+		return averageRating;
+	}
+	public void setAverageRating(double averageRating) {
+		this.averageRating = averageRating;
+	}
+
 }
