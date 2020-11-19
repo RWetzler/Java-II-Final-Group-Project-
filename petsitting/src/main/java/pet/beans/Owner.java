@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-
+@Embeddable
 public class Owner {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
