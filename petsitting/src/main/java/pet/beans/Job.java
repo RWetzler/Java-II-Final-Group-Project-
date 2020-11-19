@@ -1,5 +1,6 @@
 package pet.beans;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,8 +20,8 @@ public class Job {
 	private long jobId;
 	@Autowired
 	private Owner owner;
-	@Autowired
-	private Sitter sitter;
+	//@Autowired
+	//private Sitter sitter;
 	private int rating;
 	private String feedbackToSitter;
 	private String feedbackToOwner;
