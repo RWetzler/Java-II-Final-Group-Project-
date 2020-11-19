@@ -4,6 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@NoArgsConstructor
+@Data
 @Entity
 public class Sitter {
 	@Id
@@ -20,9 +25,25 @@ public class Sitter {
 	private String phone;
 	private String email;
 	private String miscContact;
-	private String certifacctions;
+	private String certifactions;
 	private int maxPets;
 	private double averageRating;
+	
+	public Sitter(String firstName, String lastName, String userName, String passWord,String phone, String email, String miscContact, String certifactions, int maxPets, double averageRating) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName;
+		this.passWord = passWord;
+		this.phone = phone;
+		this.email = email;
+		this.miscContact = miscContact;
+		this.certifactions = certifactions;
+		this.maxPets = maxPets;
+		this.averageRating = averageRating;
+		
+		
+	}
+	
 	public long getSitterId() {
 		return sitterId;
 	}
@@ -71,11 +92,11 @@ public class Sitter {
 	public void setMiscContact(String miscContact) {
 		this.miscContact = miscContact;
 	}
-	public String getCertifacctions() {
-		return certifacctions;
+	public String getCertifactions() {
+		return certifactions ;
 	}
-	public void setCertifacctions(String certifacctions) {
-		this.certifacctions = certifacctions;
+	public void setCertifactions(String certifactions) {
+		this.certifactions = certifactions;
 	}
 	public int getMaxPets() {
 		return maxPets;
