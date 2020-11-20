@@ -28,9 +28,11 @@ public class Owner {
 	private String phone;
 	private String email;
 	private String miscContact;
-	private String dogNeeds;
+	private String petName;
+	private String petType;
+	private String petNeeds;
 	
-	public Owner(String firstName, String lastName, String userName, String passWord,String phone, String email, String miscContact, String dogNeeds) {
+	public Owner(String firstName, String lastName, String userName, String passWord,String phone, String email, String miscContact, String petName, String petType, String petNeeds) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
@@ -38,8 +40,9 @@ public class Owner {
 		this.phone = phone;
 		this.email = email;
 		this.miscContact = miscContact;
-		this.dogNeeds = dogNeeds;
+		this.petName = petName;
+		this.petType = petType;
+		this.petNeeds = petNeeds;
 	}
-	
 	
 }
