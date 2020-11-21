@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 import pet.beans.Job;
@@ -25,10 +26,7 @@ public class WebController {
 	@Autowired
 	SitterRepository sitterRepo;
 	
-	public void addViewControllers(ViewControllerRegistry registry) {
-	    registry.addViewController("/").setViewName("forward:/index.html");
-	}
-	
+	@RequestMapping(value = "ownerHome")
 	@GetMapping({ "/ownerHome" })
 	public String viewOwner(Model model) {
 		if(ownerRepo.findAll().isEmpty()) {
@@ -36,8 +34,6 @@ public class WebController {
 		}
 		
 		model.addAttribute("owners", ownerRepo.findAll());
-		model.addAttribute("sitters", sitterRepo.findAll());
-		model.addAttribute("jobs", jobRepo.findAll());
 		
 		return "ownerHome";
 	}
