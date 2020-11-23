@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -15,19 +15,19 @@
 	<h1>We Appreciate Your Feedback</h1>
 	<h2>Please Rate Your Sitter Below</h2>
 	
-	<form name="Rate" th:object="${newSitter}"> <!-- th:action="@{/update/{id}(id=${newSitter.id})}" method=POST -->
+	<form name="Rate" th:object="${newSitter}" th:action="@{/update/3/{sitterId}(sitterId=${newSitter.sitterId})}" method=POST>
 	
 	<label>Sitter First Name:</label> <div id = "align"><input name="firstName" size="20" th:field="*{firstName}"></div><br />
-	<label>Sitter First Name:</label> <div id = "align"><input name="lastName" size="20" th:field="*{lastName}"></div><br />	
-	<label>Rating: </label> <div id = "align"><input name="job.rating" size="20" th:field="*{job.rating}"></div><br />	
-	<label>Rating: </label> <div id = "align"><input name="job.feedbackToSitter" size="20" th:field="*{job.feedbackToSitter}"></div><br />		
+	<label>Sitter Last Name:</label> <div id = "align"><input name="lastName" size="20" th:field="*{lastName}"></div><br />	
+	<label>Rating: </label> <div id = "align"><input name="rating" size="20" th:field="*{rating}"></div><br />	
+	<label>Feed Back: </label> <div id = "align"><input name="feedbackToSitter" size="20" th:field="*{feedbackToSitter}"></div><br />		
 		
 		<input name="submit" type="submit" value="Submit"/>
 	</form>
 	
 	<a href="#">Click Here to Book</a>
-	<a href="rateSitter">Click Here to Rate a Sitter</a>
-	<a href="index">Return Home</a>
+	<a href="ownerHome">Return to Account Page</a>
+	<a href="index.html">Return Home</a>
 	
 			<!-- Scripts -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
