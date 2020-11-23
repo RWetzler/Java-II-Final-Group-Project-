@@ -1,5 +1,6 @@
 package pet.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,22 +18,34 @@ import lombok.NoArgsConstructor;
 public class Owner {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ID")
 	private long ownerId;
+	@Column(name="FIRST_NAME")
 	private String firstName;
+	@Column(name="LAST_NAME")
 	private String lastName;
+	@Column(name="USERNAME")
 	private String userName;
+	@Column(name="PASSWORD")
 	private String passWord;
 	/*@Autowired
 	private Address AddressId;
 	*/
+	@Column(name="PHONE")
 	private String phone;
+	@Column(name="EMAIL")
 	private String email;
+	@Column(name="MISC_CONTACT")
 	private String miscContact;
+	@Column(name="PET_NAME")
 	private String petName;
+	@Column(name="PET_TYPE")
 	private String petType;
+	@Column(name="PET_NEEDS")
 	private String petNeeds;
-	
+
 	public Owner(String firstName, String lastName, String userName, String passWord,String phone, String email, String miscContact, String petName, String petType, String petNeeds) {
+		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;

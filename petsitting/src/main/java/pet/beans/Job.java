@@ -2,6 +2,7 @@ package pet.beans;
 
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +23,7 @@ import lombok.NoArgsConstructor;
 public class Job {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ID")
 	private long jobId;
 	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="OWNER_ID")
@@ -29,8 +31,11 @@ public class Job {
 	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="SITTER_ID")
 	private Sitter sitterId;
+	@Column(name="RATING")
 	private int rating;
+	@Column(name="FEEDBACK_TO_SITTER")
 	private String feedbackToSitter;
+	@Column(name="FEEDBACK_TO_OWNER")
 	private String feedbackToOwner;
 	
 	public Job(int rating) {
