@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 import pet.beans.Job;
@@ -40,6 +41,18 @@ public class WebController {
 		model.addAttribute("newJob", job);
 		return "rateSitter";
 	}
+	
+	@GetMapping("acceptJob")
+	public String acceptJob(@RequestParam(name="job", required=true) String theChoice, Model model)
+	{
+		if(theChoice == "Accept")
+			status = Job("Accepted");
+			return "Accepted";
+		else
+			status = Job("Rejected");
+			return "Rejected";
+	}
+	
 
 
 }
