@@ -1,5 +1,8 @@
 package pet.controller;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -27,7 +30,7 @@ public class BeanConfiguration {
 	//New instance of Console
 	@Bean
 	public Job job() {
-		Job bean = new Job (5, "Great Job!");
+		Job bean = new Job (5, "Great Job!","", "Accepted", LocalDate.parse("2020-12-01"), LocalTime.parse("13:30:00"));
 		return bean;
 	}
 }
