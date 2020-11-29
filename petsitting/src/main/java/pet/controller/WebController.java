@@ -43,14 +43,17 @@ public class WebController {
 	}
 	
 	@GetMapping("acceptJob")
-	public String acceptJob(@RequestParam(name="job", required=true) String theChoice, Model model)
+	public String acceptJob(@RequestParam(name="job", required=true) String theChoice, @PathVariable("id") long id, Model model)
 	{
+		Job j = jobRepo.findById(id).orElse(null);
 		if(theChoice == "Accept") {
-			status = Job("Accepted");
+			j.status = "Accepted";
+			jobRepo.save(j);
 			return "Accepted";
 		}
 		else {
-			status = Job("Rejected");
+			j.status = "Rejected";
+			jobRepo.save(j);
 			return "Rejected";
 		}
 	}

@@ -38,7 +38,7 @@ public class Job {
 	@Column(name="FEEDBACK_TO_OWNER")
 	private String feedbackToOwner;
 	@Column(name="STATUS")
-	private String status;
+	public String status;
 	@Column(name="DATE")
 	private LocalDate jDate;
 	@Column(name="TIME") 
