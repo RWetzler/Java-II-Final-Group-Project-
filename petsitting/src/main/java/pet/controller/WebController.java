@@ -45,12 +45,14 @@ public class WebController {
 	@GetMapping("acceptJob")
 	public String acceptJob(@RequestParam(name="job", required=true) String theChoice, Model model)
 	{
-		if(theChoice == "Accept")
+		if(theChoice == "Accept") {
 			status = Job("Accepted");
 			return "Accepted";
-		else
+		}
+		else {
 			status = Job("Rejected");
 			return "Rejected";
+		}
 	}
 	
 
