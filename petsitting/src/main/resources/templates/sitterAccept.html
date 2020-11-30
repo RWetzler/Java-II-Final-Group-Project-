@@ -5,13 +5,13 @@
 <title>Job Accept/Reject</title>
 </head>
 <body>
-<form th:object="${job}" th:action="@{/acceptJob}" method='POST'>
+<form th:object="${job}" th:action="@{/acceptJob{id}(id=${job.id})}" method='POST'>
 <select name="job">
 	<option value ="Accept"/>
 	<option value = "Reject" />
 </select>
 <input name="Submit" type="submit" value="submit"/> <br />
 </form>
-
+<a href="viewJobs">View Jobs</a>
 </body>
 </html>
