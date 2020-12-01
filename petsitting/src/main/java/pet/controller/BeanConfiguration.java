@@ -16,7 +16,7 @@ public class BeanConfiguration {
 	//New instance of Owner
 	@Bean
 	public Owner owner() {
-		Owner bean = new Owner("Dale", "OwnerTester", "daleTester", "password", "555-123-1234", "dtester@gmail.com", "n/a", "Buddy", "Dog", "HeartWorm Medication");
+		Owner bean = new Owner("Dale", "OwnerTester", "daleTester", "password", "555-123-1234", "dtester@gmail.com", "n/a");
 		return bean;
 	}
 
