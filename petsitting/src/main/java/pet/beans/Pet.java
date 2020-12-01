@@ -36,9 +36,5 @@ public class Pet {
 	}
 
 
-	public Pet(Pet petName2, Pet petNeeds2, Pet petType2) {
-		petName = petName2.getPetName();
-		petNeeds= petNeeds2.getPetNeeds();
-		petType = petType2.getPetType();
-	}
+
 }
