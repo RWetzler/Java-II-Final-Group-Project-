@@ -17,7 +17,19 @@
 
 	<h1>Welcome Back</h1>
 	<h2>View Your Pets Below</h2>
+	<form>
+		<table id="ownerPets">
+			<tr>
+				<th>Number of Pets:</th>
+			</tr>
 
+			<tr th:each="owner : ${owners}">
+				<td th:text="${owner.numOfPets }" />
+				
+				
+			</tr>
+		</table>
+	</form>
 	<form>
 		<table id="ownerPets">
 			<tr>
