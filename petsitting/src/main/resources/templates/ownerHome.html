@@ -17,22 +17,36 @@
 
 	<h1>Welcome Back</h1>
 	<h2>View Your Pets Below</h2>
+	<form>
+		<table id="numOfPets">
+			<tr>
+				<th>Number of Pets:</th>
+			</tr>
 
+			<tr th:each="currentOwner : ${owners}">
+				<td th:text="${currentOwner.numOfPets }" />
+				
+				
+			</tr>
+		</table>
+	</form>
 	<form>
 		<table id="ownerPets">
 			<tr>
-				<th>Pet Name:</th>
+				<th>Pet:</th>
 				<th>Pet Type:</th>
 				<th>Pet Needs:</th>
+				<th>Edit</th>
+				<th>Delete</th>
 			</tr>
 
-			<tr th:each="owner : ${owners}">
-				<td th:text="${owner.petName}" />
-				<td th:text="${owner.petType}" />
-				<td th:text="${owner.petNeeds}" />
-				<td><a th:href="@{/edit/1/{ownerId}(id=${owner.ownerId})}"
+			<tr th:each="currentOwner : ${owners}">
+				<td th:text="${currentOwner.pet}" />
+				<td th:text="${currentOwner.pet.petType}" />
+				<td th:text="${currentOwner.pet.petNeeds}" />
+				<td><a th:href="@{/edit/1/{ownerId}(id=${currentOwner.ownerId})}"
 					style="color: limeGreen"><strong>Edit</strong></a></td>
-				<td><a th:href="@{/delete/1/{ownerId}(id=${owner.ownerId})}"
+				<td><a th:href="@{/delete/1/{ownerId}(id=${currentOwner.ownerId})}"
 					style="color: red"><strong>Delete</strong></a></td>
 			</tr>
 		</table>
@@ -40,7 +54,7 @@
 
 	<a href="booking">Click Here to Book</a>
 	<a href="rateSitter">Click Here to Rate a Sitter</a>
-	<a href="index.html">Return Home</a>
+	<a href="/index.html">Return Home</a>
 
 	<!-- Scripts -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

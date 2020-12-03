@@ -58,6 +58,12 @@ public class WebController {
 		}
 	}
 	
-
-
+	  @GetMapping("/viewSittersByMaxPets_{maxPets}")
+		public String sortMaxPets(@PathVariable("maxPets") int maxPets, @PathVariable("numOfPets") int numOfPets, Model model) {
+		  if(sitterRepo.findAll().isEmpty()) {
+				return "insertSitter";
+			}
+		  model.addAttribute("sitters", sitterRepo.findAll());
+		  return "sitterHome";
+	  }
 }
