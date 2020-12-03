@@ -57,7 +57,4 @@ public class WebController {
 			return "Rejected";
 		}
 	}
-	
-
-
 }
