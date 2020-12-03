@@ -16,6 +16,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.CollectionId;
 import org.hibernate.annotations.Type;
@@ -30,6 +31,7 @@ import pet.repository.OwnerRepository;
 @Data
 @Entity
 @Embeddable
+@Table(name="OWNERS")
 public class Owner {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
