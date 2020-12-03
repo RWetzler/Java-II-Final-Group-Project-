@@ -33,7 +33,7 @@
 	<form>
 		<table id="ownerPets">
 			<tr>
-				<th>Pet Name:</th>
+				<th>Pet:</th>
 				<th>Pet Type:</th>
 				<th>Pet Needs:</th>
 				<th>Edit</th>
@@ -41,7 +41,7 @@
 			</tr>
 
 			<tr th:each="currentOwner : ${owners}">
-				<td th:text="${currentOwner.pet.petName}" />
+				<td th:text="${currentOwner.pet}" />
 				<td th:text="${currentOwner.pet.petType}" />
 				<td th:text="${currentOwner.pet.petNeeds}" />
 				<td><a th:href="@{/edit/1/{ownerId}(id=${currentOwner.ownerId})}"
