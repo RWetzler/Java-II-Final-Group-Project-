@@ -13,8 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.CollectionId;
 import org.hibernate.annotations.Type;
@@ -29,6 +31,7 @@ import pet.repository.OwnerRepository;
 @Data
 @Entity
 @Embeddable
+@Table(name="OWNERS")
 public class Owner {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,7 +54,7 @@ public class Owner {
 	private String email;
 	@Column(name="MISC_CONTACT")
 	private String miscContact;
-	@OneToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumns({
 		@JoinColumn(name="PET_NAME", referencedColumnName = "PET_NAME"),@JoinColumn(name="PET_TYPE",referencedColumnName="PET_TYPE"),@JoinColumn(name="PET_NEEDS",referencedColumnName="PET_NEEDS")
 		})
@@ -59,6 +62,17 @@ public class Owner {
 	@Column(name="NUM_OF_PETS")
 	private  String numOfPets;
 
+	public Owner(String firstName, String lastName, String userName, String passWord,String phone, String email, String miscContact, Pet pet) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName;
+		this.passWord = passWord;
+		this.phone = phone;
+		this.email = email;
+		this.miscContact = miscContact;
+		this.pet = pet;
+	}
 	public Owner(String firstName, String lastName, String userName, String passWord,String phone, String email, String miscContact) {
 		super();
 		this.firstName = firstName;
@@ -68,9 +82,5 @@ public class Owner {
 		this.phone = phone;
 		this.email = email;
 		this.miscContact = miscContact;
-		
 	}
-	
-	
-	
 }
