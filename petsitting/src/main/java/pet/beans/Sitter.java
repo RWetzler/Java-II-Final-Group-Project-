@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -34,9 +36,9 @@ public class Sitter {
 	private String userName;
 	@Column(name="PASSWORD")
 	private String passWord;
-	/*
-	 * @Autowired private Address AddressId;
-	 */
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="ADDRESS_ID")
+	private Address addressId;
 	@Column(name="PHONE")
 	private String phone;
 	@Column(name="EMAIL")
@@ -52,8 +54,8 @@ public class Sitter {
 	@Column(name="AVG_RATING")
 	private double averageRating;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name= "JOB")
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="JOB")
 	private Job job;
 
 	public Sitter(String firstName, String lastName, String userName, String passWord, String phone, String email,
