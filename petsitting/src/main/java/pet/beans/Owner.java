@@ -45,9 +45,9 @@ public class Owner {
 	private String userName;
 	@Column(name="PASSWORD")
 	private String passWord;
-	/*@Autowired
-	private Address AddressId;
-	*/
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="ADDRESS_ID")
+	private Address addressId;
 	@Column(name="PHONE")
 	private String phone;
 	@Column(name="EMAIL")
