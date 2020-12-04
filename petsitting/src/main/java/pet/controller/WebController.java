@@ -66,4 +66,13 @@ public class WebController {
 		  model.addAttribute("sitters", sitterRepo.findAll());
 		  return "sitterHome";
 	  }
+	  
+	  @GetMapping("/bookSitter/{sitterId}")
+	  public String bookSitter(Model model)
+	  {
+		  Job job = new Job();
+		  
+		  model.addAttribute("newJob", job);
+		  return "bookSitter";
+	  }
 }

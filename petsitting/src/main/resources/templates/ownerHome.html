@@ -25,15 +25,15 @@
 
 			<tr th:each="currentOwner : ${owners}">
 				<td th:text="${currentOwner.numOfPets }" />
-				
-				
+
+
 			</tr>
 		</table>
 	</form>
 	<form>
 		<table id="ownerPets">
 			<tr>
-				<th>Account Number: </th>
+				<th>Account Number:</th>
 				<th>First Name:</th>
 				<th>Last Name:</th>
 				<th>Phone:</th>
@@ -46,11 +46,13 @@
 				<td th:text="${currentOwner.firstName}" />
 				<td th:text="${currentOwner.lastName}" />
 				<td th:text="${currentOwner.phone}" />
-				<td th:text="${currentOwner.email}"/>
-				<td th:text="${currentOwner.miscContact}"/>
-				<td><a th:href="@{/edit/1/{ownerId}(ownerId=${currentOwner.ownerId})}" 
+				<td th:text="${currentOwner.email}" />
+				<td th:text="${currentOwner.miscContact}" />
+				<td><a
+					th:href="@{/edit/1/{ownerId}(ownerId=${currentOwner.ownerId})}"
 					style="color: limeGreen"><strong>Edit</strong></a></td>
-				<td><a th:href="@{/delete/1/{ownerId}(ownerId=${currentOwner.ownerId})}"
+				<td><a
+					th:href="@{/delete/1/{ownerId}(ownerId=${currentOwner.ownerId})}"
 					style="color: red"><strong>Delete</strong></a></td>
 			</tr>
 		</table>
