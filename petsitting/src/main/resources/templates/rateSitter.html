@@ -19,8 +19,8 @@
 	
 	<label>Sitter First Name:</label> <div id = "align"><input name="firstName" size="20" th:field="*{firstName}"></div><br />
 	<label>Sitter Last Name:</label> <div id = "align"><input name="lastName" size="20" th:field="*{lastName}"></div><br />	
-	<label>Rating: </label> <div id = "align"><input name="rating" size="20" th:field="*{rating}"></div><br />	
-	<label>Feed Back: </label> <div id = "align"><input name="feedbackToSitter" size="20" th:field="*{feedbackToSitter}"></div><br />		
+	<label>Rating: </label> <div id = "align"><input type="number" name="job.rating" size="20" th:field="*{job.rating}"></div><br />	
+	<label>Feed Back: </label> <div id = "align"><input name="job.feedbackToSitter" size="20" th:field="*{job.feedbackToSitter}"></div><br />		
 		
 		<input name="submit" type="submit" value="Submit"/>
 	</form>

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pet.beans.Owner;
-import pet.beans.Pet;
 import pet.repository.JobRepository;
 import pet.repository.OwnerRepository;
 import pet.repository.PetRepository;
@@ -37,13 +36,7 @@ public class OwnerController {
 			return addNewOwner(model);
 		}
 		
-		
-		
 		model.addAttribute("owners", ownerRepo.findAll());
-		
-		
-		
-		
 
 		return "ownerHome";
 	}
@@ -57,29 +50,29 @@ public class OwnerController {
 		return "insertOwner";
 	}
 
+
 	@GetMapping("/edit/1/{ownerId}")
-	public String showUpdateOwner(@PathVariable("ownerId") long ownerId, Model model) {
-		Owner owner = ownerRepo.findById(ownerId).orElse(null);
-
-		System.out.println("OWNER TO EDIT: " + owner.toString());
-
+	public String showUpdateOwner(@PathVariable("ownerId") Long id, Model model) {
+		Owner owner = ownerRepo.findById(id).orElse(null);
+		
+		System.out.println("PROFILE TO EDIT: " + owner.toString());
+		
 		model.addAttribute("newOwner", owner);
 		return "insertOwner";
 	}
 
 	@PostMapping("/update/1/{ownerId}")
-	public String reviseOwner(Owner owner, Model model) {
-	
+	public String reviseGame(Owner owner, Model model) {
 		ownerRepo.save(owner);
 		
-		return "ownerHome";
+		return viewOwner(model);
 	}
-
+	
 	@GetMapping("/delete/1/{ownerId}")
-	public String deleteOwner(@PathVariable("ownerId") long ownerId, Model model) {
-		Owner owner = ownerRepo.findById(ownerId).orElse(null);
+	public String deleteVideoGame(@PathVariable("ownerId") Long id, Model model) {
+		Owner owner = ownerRepo.findById(id).orElse(null);
 		ownerRepo.delete(owner);
-
-		return "ownerHome";
+		
+	    return viewOwner(model);
 	}
 }
