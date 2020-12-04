@@ -5,6 +5,7 @@ import java.time.LocalTime;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import pet.beans.Job;
 import pet.beans.Owner;

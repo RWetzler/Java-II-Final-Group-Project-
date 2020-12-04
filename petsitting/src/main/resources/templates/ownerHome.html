@@ -33,20 +33,24 @@
 	<form>
 		<table id="ownerPets">
 			<tr>
-				<th>Pet:</th>
-				<th>Pet Type:</th>
-				<th>Pet Needs:</th>
-				<th>Edit</th>
-				<th>Delete</th>
+				<th>Account Number: </th>
+				<th>First Name:</th>
+				<th>Last Name:</th>
+				<th>Phone:</th>
+				<th>Email:</th>
+				<th>Alternate Contact:</th>
 			</tr>
 
 			<tr th:each="currentOwner : ${owners}">
-				<td th:text="${currentOwner.pet}" />
-				<td th:text="${currentOwner.pet.petType}" />
-				<td th:text="${currentOwner.pet.petNeeds}" />
-				<td><a th:href="@{/edit/1/{ownerId}(id=${currentOwner.ownerId})}"
+				<td th:text="${currentOwner.ownerId}" />
+				<td th:text="${currentOwner.firstName}" />
+				<td th:text="${currentOwner.lastName}" />
+				<td th:text="${currentOwner.phone}" />
+				<td th:text="${currentOwner.email}"/>
+				<td th:text="${currentOwner.miscContact}"/>
+				<td><a th:href="@{/edit/1/{ownerId}(ownerId=${currentOwner.ownerId})}" 
 					style="color: limeGreen"><strong>Edit</strong></a></td>
-				<td><a th:href="@{/delete/1/{ownerId}(id=${currentOwner.ownerId})}"
+				<td><a th:href="@{/delete/1/{ownerId}(ownerId=${currentOwner.ownerId})}"
 					style="color: red"><strong>Delete</strong></a></td>
 			</tr>
 		</table>
