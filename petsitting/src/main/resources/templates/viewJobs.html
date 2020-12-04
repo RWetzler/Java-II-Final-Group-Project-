@@ -6,8 +6,8 @@
 </head>
 <body>
 	<form>
-		<table id = "Jobs">
-			<tr>	
+		<table id="Jobs">
+			<tr>
 				<th>First Name:</th>
 				<th>Last Name:</th>
 				<th>Pet Needs:</th>
@@ -15,15 +15,15 @@
 				<th>Job Time:</th>
 				<th>Status:</th>
 			</tr>
-				
+
 			<tr th:each="sitter : ${sitters}">
-					
+
 				<td th:text="${owner.firstName}" />
-				<td th:text="${owner.lastName}" />		
+				<td th:text="${owner.lastName}" />
 				<td th:text="${owner.petNeeds}" />
 				<td th:text="${job.jDate}" />
 				<td th:text="${job.jTime}" />
-				<td th:href="sitterAccept" th:text = "${job.Status}" />	
+				<td th:href="sitterAccept" th:text="${job.Status}" />
 				<td th:text="${job.feedbackToSitter}" />
 			</tr>
 		</table>

@@ -1,42 +1,82 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
 
 <title>Add New Pet Sitter</title>
 </head>
 <body>
 
 	<br>
-		<form name = "InsertSitter" th:object="${newSitter}" th:action="@{/update/2/{sitterId}(sitterId=${newSitter.sitterId})}" method=POST>
-		
-			<label>First Name: </label><div id = "align"><input name="firstName" size="20" th:field="*{firstName}"></div><br />
-			<label>Last Name: </label><div id = "align"><input name="lastName" size="20" th:field="*{lastName}"></div><br />
-			<label>Phone: </label> <div id = "align"><input name="phone" size="20" th:field="*{phone}"></div><br />
-			<label>Email: </label><div id = "align"><input name="email" size="20" th:field="*{email}"></div><br />
-			<label>Alternate Contact: </label><div id = "align"><input name="miscContact" size="20" th:field="*{miscContact}"></div><br />
-			<label>Certifications: </label><div id = "align"><input name="certifications" size="20" th:field="*{certifications}"></div><br />
-			<label>Max Pets: </label><div id = "align"><input name="maxPets" size="20" th:field="*{maxPets}"></div><br />
-			<label>Biography: </label><div id = "align"><input name="biography" size="20" th:field="*{biography}"></div><br />
+	<form name="InsertSitter" th:object="${newSitter}"
+		th:action="@{/update/2/{sitterId}(sitterId=${newSitter.sitterId})}"
+		method=POST>
 
-			<label>Create a Username: </label><div id = "align"><input name="userName" size="20" th:field="*{userName}"></div><br />
-			<label>Create A Password: </label><div id = "align"><input name="passWord" size="20" th:field="*{passWord}"></div><br />
-			
-			<br>
-			<input name="submit" type="submit" value="Submit"/>
-		</form>
-		
-		<a href="index.html">Return to Login Page</a>
-		
-			
+		<label>First Name: </label>
+		<div id="align">
+			<input name="firstName" size="20" th:field="*{firstName}">
+		</div>
+		<br /> <label>Last Name: </label>
+		<div id="align">
+			<input name="lastName" size="20" th:field="*{lastName}">
+		</div>
+		<br /> <label>Phone: </label>
+		<div id="align">
+			<input name="phone" size="20" th:field="*{phone}">
+		</div>
+		<br /> <label>Email: </label>
+		<div id="align">
+			<input name="email" size="20" th:field="*{email}">
+		</div>
+		<br /> <label>Alternate Contact: </label>
+		<div id="align">
+			<input name="miscContact" size="20" th:field="*{miscContact}">
+		</div>
+		<br /> <label>Certifications: </label>
+		<div id="align">
+			<input name="certifications" size="20" th:field="*{certifications}">
+		</div>
+		<br /> <label>Max Pets: </label>
+		<div id="align">
+			<input name="maxPets" size="20" th:field="*{maxPets}">
+		</div>
+		<br /> <label>Biography: </label>
+		<div id="align">
+			<input name="biography" size="20" th:field="*{biography}">
+		</div>
+		<br /> <label>Create a Username: </label>
+		<div id="align">
+			<input name="userName" size="20" th:field="*{userName}">
+		</div>
+		<br /> <label>Create A Password: </label>
+		<div id="align">
+			<input name="passWord" size="20" th:field="*{passWord}">
+		</div>
+		<br /> <br> <input name="submit" type="submit" value="Submit" />
+	</form>
+
+	<a href="index.html">Return to Login Page</a>
+
+
 	<!-- Scripts -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
- 
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
 </body>
 </html>
