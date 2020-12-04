@@ -31,7 +31,7 @@
 			</tr>
 				
 			<tr th:each="sitter : ${sitters}">
-					
+				<td th:text="${sitter.sitterId}" />
 				<td th:text="${sitter.firstName}" />
 				<td th:text="${sitter.lastName}" />		
 				<td th:text="${sitter.phone}" />
@@ -42,15 +42,15 @@
 				<td th:text="${sitter.biography}" />
 				<td th:text="${sitter.averageRating}" />	
 					
-				<td><a th:href="@{/edit/2/{sitterId}(id=${sitter.sitterId})}" style = "color: limeGreen"><strong>Edit</strong></a></td>
-				<td><a th:href="@{/delete/2/{sitterId}(id=${sitter.sitterId})}" style = "color: red"><strong>Delete</strong></a></td>
+				<td><a th:href="@{/edit/2/{sitterId}(sitterId=${sitter.sitterId})}" style = "color: limeGreen"><strong>Edit</strong></a></td>
+				<td><a th:href="@{/delete/2/{sitterId}(sitterId=${sitter.sitterId})}" style = "color: red"><strong>Delete</strong></a></td>
 			</tr>
 		</table>
 	</form>
 	
 	<a href="#">Click Here to View Jobs</a>
 	<a href="rateOwner">Click Here to Rate an Owner</a>
-	<a href="index.html">Return Home</a>
+	<a href="/index.html">Return Home</a>
 	
 			<!-- Scripts -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

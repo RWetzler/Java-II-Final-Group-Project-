@@ -49,8 +49,8 @@ public class SitterController {
 	}
 
 	@GetMapping("/edit/2/{sitterId}")
-	public String showUpdateSitter(@PathVariable("sitterId") long sitterId, Model model) {
-		Sitter sitter = sitterRepo.findById(sitterId).orElse(null);
+	public String showUpdateSitter(@PathVariable("sitterId") Long id, Model model) {
+		Sitter sitter = sitterRepo.findById(id).orElse(null);
 
 		System.out.println("SITTER TO EDIT: " + sitter.toString());
 
@@ -62,14 +62,14 @@ public class SitterController {
 	public String reviseSitter(Sitter sitter, Model model) {
 		sitterRepo.save(sitter);
 
-		return "sitterHome";
+		return viewSitter(model);
 	}
 
 	@GetMapping("/delete/2/{sitterId}")
-	public String deleteSitter(@PathVariable("sitterId") long sitterId, Model model) {
-		Sitter sitter = sitterRepo.findById(sitterId).orElse(null);
+	public String deleteSitter(@PathVariable("sitterId") Long id, Model model) {
+		Sitter sitter = sitterRepo.findById(id).orElse(null);
 		sitterRepo.delete(sitter);
 
-		return "sitterHome";
+		return viewSitter(model);
 	}
 }
