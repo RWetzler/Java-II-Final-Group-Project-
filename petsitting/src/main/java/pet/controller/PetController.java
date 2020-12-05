@@ -34,14 +34,14 @@ public class PetController{
 		model.addAttribute("owners",repo.findAll());
 		return "results";
 	}
-	@GetMapping("/inputStudent")
+	@GetMapping("/inputPet")
 		public String addNewPet(Model model) {
 		Pet p = new Pet();
 		model.addAttribute("newPet", p);
 		viewAllOwner(model);
 		return "input";
 	}
-	@PostMapping("/inputStudent")
+	@PostMapping("/inputPet")
 	public String addNewPet(@ModelAttribute Pet p, Model model) {
 	repo.save(p);
 	return viewAllPets(model);
