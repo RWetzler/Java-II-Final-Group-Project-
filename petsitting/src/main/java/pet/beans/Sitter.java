@@ -54,7 +54,7 @@ public class Sitter {
 	@Column(name="AVG_RATING")
 	private double averageRating;
 	
-	@OneToMany(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="JOB")
 	private Job job;
 
