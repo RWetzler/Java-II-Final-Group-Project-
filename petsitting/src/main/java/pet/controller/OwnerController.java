@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pet.beans.Owner;
+import pet.repository.AddressRepository;
 import pet.repository.JobRepository;
 import pet.repository.OwnerRepository;
 import pet.repository.PetRepository;
@@ -28,6 +29,9 @@ public class OwnerController {
 	
 	@Autowired
 	PetRepository petRepo;
+	
+	@Autowired
+	AddressRepository addressRepo;
 	
 	@RequestMapping(value = "ownerHome")
 	@GetMapping({ "/ownerHome" })
@@ -62,14 +66,14 @@ public class OwnerController {
 	}
 
 	@PostMapping("/update/1/{ownerId}")
-	public String reviseGame(Owner owner, Model model) {
+	public String reviseOwner(Owner owner, Model model) {
 		ownerRepo.save(owner);
 		
 		return viewOwner(model);
 	}
 	
 	@GetMapping("/delete/1/{ownerId}")
-	public String deleteVideoGame(@PathVariable("ownerId") Long id, Model model) {
+	public String deleteOwner(@PathVariable("ownerId") Long id, Model model) {
 		Owner owner = ownerRepo.findById(id).orElse(null);
 		ownerRepo.delete(owner);
 		

@@ -30,6 +30,7 @@
 				<th>Maximum Pets:</th>
 				<th>Biography:</th>
 				<th>Average Rating:</th>
+				<th>Address Information:</th>
 
 			</tr>
 
@@ -44,6 +45,7 @@
 				<td th:text="${sitter.maxPets}" />
 				<td th:text="${sitter.biography}" />
 				<td th:text="${sitter.averageRating}" />
+
 
 				<td><a
 					th:href="@{/edit/2/{sitterId}(sitterId=${sitter.sitterId})}"
