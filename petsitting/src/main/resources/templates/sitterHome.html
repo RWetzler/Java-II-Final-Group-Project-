@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
 
-  <title>Sitter Homepage</title>
+<title>Sitter Homepage</title>
 
 </head>
 <body>
 
 	<h1>Welcome Back</h1>
 	<h2>View Your Account Below</h2>
-	
+
 	<form>
-		<table id = "sitterBio">
-			<tr>	
+		<table id="sitterBio">
+			<tr>
 				<th>First Name:</th>
 				<th>Last Name:</th>
 				<th>Phone:</th>
@@ -29,33 +32,46 @@
 				<th>Average Rating:</th>
 
 			</tr>
-				
+
 			<tr th:each="sitter : ${sitters}">
-					
+				<td th:text="${sitter.sitterId}" />
 				<td th:text="${sitter.firstName}" />
-				<td th:text="${sitter.lastName}" />		
+				<td th:text="${sitter.lastName}" />
 				<td th:text="${sitter.phone}" />
-				<td th:text="${sitter.email}" />	
+				<td th:text="${sitter.email}" />
 				<td th:text="${sitter.miscContact}" />
 				<td th:text="${sitter.certifications}" />
 				<td th:text="${sitter.maxPets}" />
 				<td th:text="${sitter.biography}" />
-				<td th:text="${sitter.averageRating}" />	
-					
-				<td><a th:href="@{/edit/2/{sitterId}(id=${sitter.sitterId})}" style = "color: limeGreen"><strong>Edit</strong></a></td>
-				<td><a th:href="@{/delete/2/{sitterId}(id=${sitter.sitterId})}" style = "color: red"><strong>Delete</strong></a></td>
+				<td th:text="${sitter.averageRating}" />
+
+
+				<td><a
+					th:href="@{/edit/2/{sitterId}(sitterId=${sitter.sitterId})}"
+					style="color: limeGreen"><strong>Edit</strong></a></td>
+				<td><a
+					th:href="@{/delete/2/{sitterId}(sitterId=${sitter.sitterId})}"
+					style="color: red"><strong>Delete</strong></a></td>
 			</tr>
 		</table>
 	</form>
-	
+
 	<a href="#">Click Here to View Jobs</a>
 	<a href="rateOwner">Click Here to Rate an Owner</a>
-	<a href="index.html">Return Home</a>
-	
-			<!-- Scripts -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
- 
+	<a href="/index.html">Return Home</a>
+
+	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
 </body>
 </html>
