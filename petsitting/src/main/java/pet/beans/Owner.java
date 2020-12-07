@@ -47,7 +47,7 @@ public class Owner {
 	private String passWord;
 	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="ADDRESS_ID")
-	private Address addressId;
+	private Address address;
 	@Column(name="PHONE")
 	private String phone;
 	@Column(name="EMAIL")
@@ -62,7 +62,7 @@ public class Owner {
 	@Column(name="NUM_OF_PETS")
 	private  String numOfPets;
 
-	public Owner(String firstName, String lastName, String userName, String passWord,String phone, String email, String miscContact, Pet pet) {
+	public Owner(String firstName, String lastName, String userName, String passWord,String phone, String email, String miscContact, Pet pet, Address address) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -72,6 +72,7 @@ public class Owner {
 		this.email = email;
 		this.miscContact = miscContact;
 		this.pet = pet;
+		this.address = address;
 	}
 	public Owner(String firstName, String lastName, String userName, String passWord,String phone, String email, String miscContact) {
 		super();
