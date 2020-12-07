@@ -38,7 +38,7 @@ public class Sitter {
 	private String passWord;
 	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="ADDRESS_ID")
-	private Address addressId;
+	private Address address;
 	@Column(name="PHONE")
 	private String phone;
 	@Column(name="EMAIL")
@@ -75,7 +75,7 @@ public class Sitter {
 	}
 	
 	public Sitter(String firstName, String lastName, String userName, String passWord, String phone, String email,
-			String miscContact, String certifications, int maxPets, String biography, double averageRating, Job job) {
+			String miscContact, String certifications, int maxPets, String biography, double averageRating, Job job, Address address) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -89,6 +89,7 @@ public class Sitter {
 		this.biography = biography;
 		this.averageRating = averageRating;
 		this.job = job;
+		this.address = address;
 	}
 
 }
