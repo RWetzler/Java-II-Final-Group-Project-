@@ -76,22 +76,10 @@ public class SitterController {
 	@RequestMapping(value = "viewJobs")
 	@GetMapping({ "/viewJobs" })
 	public String viewJobs(Model model) {
-		if (jobRepo.findAll().isEmpty()) {
-			return addNewJob(model);
-		}
-
 		model.addAttribute("owners", ownerRepo.findAll());
 		model.addAttribute("sitters", sitterRepo.findAll());
 		model.addAttribute("jobs", jobRepo.findAll());
 
 		return "viewJobs";
-	}
-	@RequestMapping(value = "insertJob")
-	@GetMapping("/insertJob")
-	public String addNewJob(Model model) {
-		Job job = new Job();
-
-		model.addAttribute("newJob", job);
-		return "insertJob";
 	}
 }
