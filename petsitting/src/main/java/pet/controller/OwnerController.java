@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pet.beans.Owner;
+import pet.beans.Sitter;
 import pet.repository.AddressRepository;
 import pet.repository.JobRepository;
 import pet.repository.OwnerRepository;
@@ -78,5 +79,15 @@ public class OwnerController {
 		ownerRepo.delete(owner);
 		
 	    return viewOwner(model);
+	}
+	@RequestMapping(value = "booking")
+	@GetMapping({ "/booking" })
+	public String booking(Model model) {
+		
+		model.addAttribute("owners", ownerRepo.findAll());
+		model.addAttribute("sitters", sitterRepo.findAll());
+		model.addAttribute("jobs", jobRepo.findAll());
+
+		return "booking";
 	}
 }
