@@ -10,58 +10,61 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import pet.beans.Owner;
 import pet.beans.Pet;
+import pet.repository.OwnerRepository;
 import pet.repository.PetRepository;
 
 
 @Controller
 public class PetController{
 	@Autowired
-	PetRepository repo;
+	PetRepository pRepo;
+	
+	@Autowired
+	OwnerRepository oRepo;
+	
+	
 	
 	@GetMapping({"viewAll" })
 	public String viewAllPets(Model model) {
-		if(repo.findAll().isEmpty()) {
+		if(pRepo.findAll().isEmpty()) {
 			return addNewPet(model);
 			}
-		model.addAttribute("pets",repo.findAll());
-		return "results";
+		model.addAttribute("pets",pRepo.findAll());
+		return "/ownerHome";
 	}	
-	@GetMapping({"viewAllOwners" })
-	public String viewAllOwner(Model model) {
-		if(repo.findAll().isEmpty()) {
-			return addNewPet(model);
-			}
-		model.addAttribute("owners",repo.findAll());
-		return "results";
-	}
+	
 	@GetMapping("/inputPet")
 		public String addNewPet(Model model) {
 		Pet p = new Pet();
 		model.addAttribute("newPet", p);
-		viewAllOwner(model);
-		return "input";
+		if(oRepo.findAll().isEmpty()) {
+			return "/ownerHome";
+			}
+		model.addAttribute("owners",oRepo.findAll());
+		return "insertPet";
 	}
 	@PostMapping("/inputPet")
 	public String addNewPet(@ModelAttribute Pet p, Model model) {
-	repo.save(p);
-	return viewAllPets(model);
+	pRepo.save(p);
+	return "ownerHome";
 	
 }
 	@GetMapping("/edit/{id}")
 	public String showUpdatePet(@PathVariable("id") long id,Model model) {
-	Pet p = repo.findById(id).orElse(null);
+	Pet p = pRepo.findById(id).orElse(null);
 	model.addAttribute("newPet", p);
 	return "input";
 	}
 	@PostMapping("/update/{id}")
 	public String revisePet(Pet p, Model model) {
-	repo.save(p);
-	return viewAllPets(model);
+	pRepo.save(p);
+	
+	return "/ownerHome";
 	}
 	@GetMapping("/delete/{id}")
 	public String deletePet(@PathVariable("id") long id, Model model) {
-	Pet p = repo.findById(id).orElse(null);
-	 repo.delete(p);
+	Pet p = pRepo.findById(id).orElse(null);
+	 pRepo.delete(p);
 	 return viewAllPets(model);
 	}
 }
