@@ -39,7 +39,7 @@
 				<td th:text="${sitter.maxPets}" />
 				<td th:text="${sitter.biography}" />
 				<td th:text="${sitter.averageRating}" />
-				<td>Pet's Needs<input type="text" th:field="*{content}" /></td>
+				
 
 				<td><a
 					th:href="@{/bookSitter/{sitterId}(id=${sitter.sitterId})}"
@@ -47,6 +47,7 @@
 			</tr>
 		</table>
 	</form>
+	<a href="/index.html">Return Home</a>
 
 </body>
 </body>
