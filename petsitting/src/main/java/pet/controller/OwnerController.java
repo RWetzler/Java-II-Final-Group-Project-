@@ -4,11 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
+
+
 import pet.beans.Job;
+
 import pet.beans.Owner;
 import pet.beans.Sitter;
 import pet.repository.AddressRepository;
@@ -73,6 +78,7 @@ public class OwnerController {
 		
 		return viewOwner(model);
 	}
+	
 	
 	@GetMapping("/delete/1/{ownerId}")
 	public String deleteOwner(@PathVariable("ownerId") Long id, Model model) {

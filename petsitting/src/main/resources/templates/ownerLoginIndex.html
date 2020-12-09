@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Login!</title>
+<script type = "text/javascript">
+
+function checkForm(myForm) {
+	if( myForm.name.value == "" ) {
+        alert( "Please provide a username" );
+        myForm.name.focus();
+        return false;
+     }
+	if( myForm.grade.value == "" ) {
+        alert( "Please provide a password" );
+        myForm.grade.focus();
+        return false;
+     }
+	var re = /^[\w ]+$/;
+	if(!re.test(myForm.name.value)) {
+	      alert("Error: Input contains invalid characters!");
+	      myForm.name.focus();
+	      return false;
+	    }
+	return true;
+}
+
+</script>
+</head>
+<body>
+<form th:object="${loginOwner}" th:action="@{/loginOwner/{id}(id=${loginOwner.ownerId})}" name = "myForm" method='POST' onsubmit = "return checkForm(this)">
+Username: <input name="userName" size="20" th:field="*{userName}"> <br />
+Password: <input name="passWord" size="10" th:field="*{passWord}"><br />
+<input name="submit" type="submit" value="submit" />
+</form>
+<a href="index.html">Return To Home Page</a>
+<a href="/insertOwner">Create An Account</a>
+</body>
+</html>
