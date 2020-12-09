@@ -45,7 +45,6 @@ public class Owner {
 	private String userName;
 	@Column(name="PASSWORD")
 	private String passWord;
-
 	@Column(name="PHONE")
 	private String phone;
 	@Column(name="EMAIL")
