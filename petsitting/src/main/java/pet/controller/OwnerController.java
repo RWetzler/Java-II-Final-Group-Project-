@@ -16,7 +16,6 @@ import pet.beans.Job;
 
 import pet.beans.Owner;
 import pet.beans.Sitter;
-import pet.repository.AddressRepository;
 import pet.repository.JobRepository;
 import pet.repository.OwnerRepository;
 import pet.repository.PetRepository;
@@ -36,9 +35,6 @@ public class OwnerController {
 	
 	@Autowired
 	PetRepository petRepo;
-	
-	@Autowired
-	AddressRepository addressRepo;
 	
 	@RequestMapping(value = "ownerHome")
 	@GetMapping({ "/ownerHome" })
