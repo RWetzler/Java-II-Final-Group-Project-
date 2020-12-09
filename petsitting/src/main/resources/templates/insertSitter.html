@@ -11,73 +11,169 @@
 	crossorigin="anonymous">
 
 <title>Add New Pet Sitter</title>
+<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<style type="text/css">
+.form-style-10{
+	width:450px;
+	padding:30px;
+	margin:40px auto;
+	background: #FFF;
+	border-radius: 10px;
+	-webkit-border-radius:10px;
+	-moz-border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+}
+.form-style-10 .inner-wrap{
+	padding: 30px;
+	background: #F8F8F8;
+	border-radius: 6px;
+	margin-bottom: 15px;
+}
+.form-style-10 h1{
+	background: #2A88AD;
+	padding: 20px 30px 15px 30px;
+	margin: -30px -30px 30px -30px;
+	border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	color: #fff;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+	font: normal 30px 'Bitter', serif;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	border: 1px solid #257C9E;
+}
+.form-style-10 h1 > span{
+	display: block;
+	margin-top: 2px;
+	font: 13px Arial, Helvetica, sans-serif;
+}
+.form-style-10 label{
+	display: block;
+	font: 13px Arial, Helvetica, sans-serif;
+	color: #888;
+	margin-bottom: 15px;
+}
+.form-style-10 input[type="text"],
+.form-style-10 input[type="date"],
+.form-style-10 input[type="datetime"],
+.form-style-10 input[type="email"],
+.form-style-10 input[type="number"],
+.form-style-10 input[type="search"],
+.form-style-10 input[type="time"],
+.form-style-10 input[type="url"],
+.form-style-10 input[type="password"],
+.form-style-10 textarea,
+.form-style-10 select {
+	display: block;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	padding: 8px;
+	border-radius: 6px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border: 2px solid #fff;
+	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+}
+
+.form-style-10 .section{
+	font: normal 20px 'Bitter', serif;
+	color: #2A88AD;
+	margin-bottom: 5px;
+}
+.form-style-10 .section span {
+	background: #2A88AD;
+	padding: 5px 10px 5px 10px;
+	position: absolute;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border: 4px solid #fff;
+	font-size: 14px;
+	margin-left: -45px;
+	color: #fff;
+	margin-top: -3px;
+}
+.form-style-10 input[type="button"], 
+.form-style-10 input[type="submit"]{
+	background: #2A88AD;
+	padding: 8px 20px 8px 20px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	color: #fff;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+	font: normal 30px 'Bitter', serif;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	border: 1px solid #257C9E;
+	font-size: 15px;
+}
+.form-style-10 input[type="button"]:hover, 
+.form-style-10 input[type="submit"]:hover{
+	background: #2A6881;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+}
+.form-style-10 .privacy-policy{
+	float: right;
+	width: 250px;
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #4D4D4D;
+	margin-top: 10px;
+	text-align: right;
+}
+</style>
 </head>
 <body>
 
 	<br>
+	<div class="form-style-10">
+	<h1>Sign Up Now!<span>Make a Career Petting Dogs!</span></h1>
 	<form name="InsertSitter" th:object="${newSitter}"
 		th:action="@{/update/2/{sitterId}(sitterId=${newSitter.sitterId})}"
 		method=POST>
 
-		<label>First Name: </label>
-		<div id="align">
-			<input name="firstName" size="20" th:field="*{firstName}">
-		</div>
-		<br /> <label>Last Name: </label>
-		<div id="align">
-			<input name="lastName" size="20" th:field="*{lastName}">
-		</div>
-		<br /> <label>Phone: </label>
-		<div id="align">
-			<input name="phone" size="20" th:field="*{phone}">
-		</div>
-		<br /> <label>Email: </label>
-		<div id="align">
-			<input name="email" size="20" th:field="*{email}">
-		</div>
-		<br /> <label>Alternate Contact: </label>
-		<div id="align">
-			<input name="miscContact" size="20" th:field="*{miscContact}">
-		</div>
-		<br /> <label>Certifications: </label>
-		<div id="align">
-			<input name="certifications" size="20" th:field="*{certifications}">
-		</div>
-		<br /> <label>Max Pets: </label>
-		<div id="align">
-			<input name="maxPets" size="20" th:field="*{maxPets}">
-		</div>
-		<br /> <label>Biography: </label>
-		<div id="align">
-			<input name="biography" size="20" th:field="*{biography}">
-		</div>
-		<br /> <label>Create a Username: </label>
-		<div id="align">
-			<input name="userName" size="20" th:field="*{userName}">
-		</div>
-		<br /> <label>Create A Password: </label>
-		<div id="align">
-			<input name="passWord" size="20" th:field="*{passWord}">
-		</div>
-		<br /> <br> <input name="submit" type="submit" value="Submit" />
-	</form>
+		 <div class="section"><span>1</span>Your Name</div>
+    <div class="inner-wrap">
+        <label>First Name<input type="text" name="field1" th:field="*{firstName}" /></label>
+        <label>Last Name<input type="text" name="field2" th:field="*{lastName}" /></label>
+    </div>
 
-	<a href="@{/edit/1/{addressId}(addressId=${currentSitter.address.addressId})}">Edit Address</a>
-	<a href="index.html">Return to Login Page</a>
-
-
-	<!-- Scripts -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
-
+    <div class="section"><span>2</span>Contact Information</div>
+    <div class="inner-wrap">
+        <label>Email Address <input type="email" name="field3" th:field="*{email}" /></label>
+        <label>Phone Number <input type="text" name="field4" th:field="*{phone}"/></label>
+		<label>Alternative Contact<input type="text" name="field5" th:field="*{miscContact}"/></label>
+	</div>
+	
+	<div class="section"><span>3</span>About Yourself</div>
+	<div class="inner-wrap">
+		<label>How Many Pets Can You Handle? <input type="text" name="field6" th:field="*{phone}"/></label>
+    	<label>Any Certifications? <input type="text" name="field7" th:field="*{certifications}"/></label>
+    	<label>What Should We Display in Your Bio? <textarea  rows="4" cols="50" type="text" name="field8" th:field="*{biography}"/></textarea></label>
+    </div>
+    
+    <div class="section"><span>4</span>Create Account</div>
+        <div class="inner-wrap">
+        <label>Username <input type="text" name="field9" th:field="*{userName}"/></label>
+        <label>Password <input type="password" name="field10" th:field="*{passWord}" /></label>
+    </div>
+    <div class="button-section">
+     <input type="submit" name="Sign Up" />
+	 <br>
+	 <p><a style="font-size: 12px" href="index.html"><strong>Return Home</strong></a>
+    </div>
+</form>
+</div>
 </body>
 </html>
