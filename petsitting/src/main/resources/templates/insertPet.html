@@ -2,25 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Create a New Pet!</title>
 </head>
 <body>
 	<form th:object="${newPet}"
-		th:action="@{/update/{id}(id=${newPet.id})}" name="myForm"
-		method='POST' onsubmit="return checkForm(this)">
+		th:action="@{/update/{id}(id=${newPet.petId})}" name="myForm" method='POST' onsubmit="return checkForm(this)">
 		Your Pet's Name: <input name="petName" size="20" th:field="*{petName}">
 		<br /> Your Pet's Breed: <input name="petType" size="10"
 			th:field="*{petType}"><br /> Any Extra Needs for your Pet?:
 		<input name="petNeeds" size="10" th:field="*{petNeeds}"><br />
-		<table>
-			<tr th:each="currentOwner : ${owners}">
-				<td th:text="${currentOwner.ownerId}" />
-				<td th:text="${currentOwner.firstName}" />
-
-				<td><a th:href="@{/edit/{id}(id=${newPet.id})}">Edit</a></td>
-				<td><a th:href="@{/delete/{id}(id=${newPet.id})}">Delete</a></td>
-			</tr>
-		</table>
+ <fieldset>
+        <legend>Your addresses</legend>
+        <ul>
+            <li th:each="currentOwners : ${owners}">
+                <input type="radio" th:field="${owners}" th:value="${currentOwners.firstName}" />
+                <label th:for="${owners}" th:text="${currentOwners.firstName}"></label>
+            </li>
+        </ul>
+    </fieldset>
 		<input name="submit" type="submit" value="submit" />
 	</form>
 </body>
