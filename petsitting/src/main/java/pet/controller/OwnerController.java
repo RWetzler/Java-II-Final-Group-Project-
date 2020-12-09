@@ -85,7 +85,7 @@ public class OwnerController {
 	}
 	
 	@RequestMapping(value = "booking")
-	@GetMapping({ "/booking" })
+	@GetMapping("/booking")
 	public String booking(Model model) {
 		
 		model.addAttribute("owners", ownerRepo.findAll());

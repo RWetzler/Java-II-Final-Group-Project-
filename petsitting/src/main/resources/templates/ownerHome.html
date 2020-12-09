@@ -20,7 +20,7 @@
 	<form>
 		<table id="numOfPets">
 			<tr>
-				<th>Number of Pets:</th>
+				<th>Number of Pets: </th>
 			</tr>
 
 			<tr th:each="currentOwner : ${owners}">
@@ -54,6 +54,10 @@
 				<td><a
 					th:href="@{/delete/1/{ownerId}(ownerId=${currentOwner.ownerId})}"
 					style="color: red"><strong>Delete</strong></a></td>
+				<td><a
+					th:href="@{/insertPet/{ownerId}(ownerId=${currentOwner.ownerId})}"
+					style="color: limeGreen"><strong>Add Pet</strong></a></td>
+					
 			</tr>
 			<tr th:each="currentPet : ${pets}">
 				<td th:text="${currentPet.petName}"/>
