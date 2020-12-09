@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pet.beans.Owner;
 import pet.beans.Pet;
 import pet.beans.Sitter;
+import pet.repository.JobRepository;
 import pet.repository.OwnerRepository;
 import pet.repository.SitterRepository;
 
@@ -24,6 +25,9 @@ public class loginController {
 	@Autowired
 	SitterRepository sitterRepo;
 	
+	@Autowired
+	JobRepository jobRepo;
+	
 	
 
 	@PostMapping("/loginOwner/{Id}")
@@ -34,6 +38,12 @@ public class loginController {
 		for (Owner ownerLoop : findOwner) {
 			if(ownerLoop.getUserName().contentEquals(userName)) {
 				if(ownerLoop.getPassWord().contentEquals(passWord)) {
+					if (ownerRepo.findAll().isEmpty()) {
+						return "/insertOwner";
+					}
+					
+					model.addAttribute("owners", ownerRepo.findAll());
+
 					return "ownerHome";
 				}
 			}
@@ -63,6 +73,14 @@ public String loginSitter(Sitter sitter, Model model) {
 	for (Sitter sitterLoop : findSitter) {
 		if(sitterLoop.getUserName().contentEquals(userName)) {
 			if(sitterLoop.getPassWord().contentEquals(passWord)) {
+				if (sitterRepo.findAll().isEmpty()) {
+					return "/insertSitter";
+				}
+
+				model.addAttribute("owners", ownerRepo.findAll());
+				model.addAttribute("sitters", sitterRepo.findAll());
+				model.addAttribute("jobs", jobRepo.findAll());
+
 				return "sitterHome";
 			}
 		}
