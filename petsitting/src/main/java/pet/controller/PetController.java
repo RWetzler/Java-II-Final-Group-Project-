@@ -32,7 +32,10 @@ public class PetController{
 		model.addAttribute("pets",pRepo.findAll());
 		return "/ownerHome";
 	}	
+
+
 	
+
 	@GetMapping("/inputPet")
 		public String addNewPet(Model model) {
 		Pet p = new Pet();

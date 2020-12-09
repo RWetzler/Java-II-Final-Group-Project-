@@ -84,4 +84,8 @@ public class Owner {
 		this.email = email;
 		this.miscContact = miscContact;
 	}
+	public Owner(String userName, String passWord) {
+		this.userName = userName;
+		this.passWord = passWord;
+	}
 }
