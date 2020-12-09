@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+
+
+import pet.beans.Job;
+
 import pet.beans.Owner;
 import pet.beans.Sitter;
 import pet.repository.AddressRepository;
@@ -83,6 +87,7 @@ public class OwnerController {
 		
 	    return viewOwner(model);
 	}
+	
 	@RequestMapping(value = "booking")
 	@GetMapping({ "/booking" })
 	public String booking(Model model) {
