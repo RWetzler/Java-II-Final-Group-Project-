@@ -13,7 +13,9 @@
 <title>Book Your Sitter</title>
 </head>
 <body>
-	<form>
+	<form name="insertJob" th:object="${newJob}"
+		th:action="@{insertJob}"
+		method=POST>
 		<table id="sitterBio">
 			<tr>
 				<th>First Name:</th>
@@ -39,14 +41,12 @@
 				<td th:text="${sitter.maxPets}" />
 				<td th:text="${sitter.biography}" />
 				<td th:text="${sitter.averageRating}" />
-				<td>Pet's Needs<input type="text" th:field="*{content}" /></td>
-
-				<td><a
-					th:href="@{/bookSitter/{sitterId}(id=${sitter.sitterId})}"
-					style="color: limeGreen"><strong>Book</strong></a></td>
+				
 			</tr>
 		</table>
+		<input name="submit" type="submit" value="Book Sitter" />
 	</form>
+	<a href="/index.html">Return Home</a>
 
 </body>
 </body>

@@ -91,5 +91,8 @@ public class Sitter {
 		this.job = job;
 		this.address = address;
 	}
-
+public Sitter(String passWord, String userName) {
+	this.passWord = passWord;
+	this.userName = userName;
+}
 }

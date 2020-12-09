@@ -30,10 +30,10 @@ public class Job {
 	private long jobId;
 	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="OWNER_ID")
-	private Owner ownerId;
+	public Owner ownerId;
 	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="SITTER_ID")
-	private Sitter sitterId;
+	public Sitter sitterId;
 	@Column(name="RATING")
 	private int rating;
 	@Column(name="FEEDBACK_TO_SITTER")
