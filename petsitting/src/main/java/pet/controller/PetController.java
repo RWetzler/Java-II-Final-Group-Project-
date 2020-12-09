@@ -53,7 +53,7 @@ public class PetController{
 	public String showUpdatePet(@PathVariable("petId") long id,Model model) {
 	Pet p = pRepo.findById(id).orElse(null);
 	model.addAttribute("newPet", p);
-	return "input";
+	return "inputPet";
 	}
 	@PostMapping("/update/4/{petId}")
 	public String revisePet(Pet p, Model model) {
