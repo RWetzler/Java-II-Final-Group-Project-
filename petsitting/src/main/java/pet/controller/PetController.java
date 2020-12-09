@@ -33,14 +33,6 @@ public class PetController{
 		return "/ownerHome";
 	}	
 
-	@GetMapping({"viewAllOwners" })
-	public String viewAllOwner(Model model) {
-		if(repo.findAll().isEmpty()) {
-			return addNewPet(model);
-			}
-		model.addAttribute("loginOwner",repo.findAll());
-		return "loginIndex";
-	}
 
 	
 
