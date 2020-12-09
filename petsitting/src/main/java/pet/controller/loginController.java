@@ -39,7 +39,7 @@ public class loginController {
 			if(ownerLoop.getUserName().contentEquals(userName)) {
 				if(ownerLoop.getPassWord().contentEquals(passWord)) {
 					if (ownerRepo.findAll().isEmpty()) {
-						return "/insertOwner";
+						return "insertOwner";
 					}
 					
 					model.addAttribute("owners", ownerRepo.findAll());
@@ -74,7 +74,7 @@ public String loginSitter(Sitter sitter, Model model) {
 		if(sitterLoop.getUserName().contentEquals(userName)) {
 			if(sitterLoop.getPassWord().contentEquals(passWord)) {
 				if (sitterRepo.findAll().isEmpty()) {
-					return "/insertSitter";
+					return "insertSitter";
 				}
 
 				model.addAttribute("owners", ownerRepo.findAll());

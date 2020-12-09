@@ -22,7 +22,7 @@ function checkForm(myForm) {
 </script>
 </head>
 <body>
-<form th:object="${loginSitter}" th:action="@{/loginSitter/{id}(id=${loginSitter.sitterId})}" name = "myForm" method='POST' onsubmit = "return checkForm(this)">
+<form th:object="${loginSitter}" th:action="@{/loginSitter/{sitterId}(sitterId=${loginSitter.sitterId})}" name = "myForm" method='POST' onsubmit = "return checkForm(this)">
 Username: <input name="userName" size="20" th:field="*{userName}"> <br />
 Password: <input name="passWord" size="10" th:field="*{passWord}"><br />
 <input name="submit" type="submit" value="submit" />
