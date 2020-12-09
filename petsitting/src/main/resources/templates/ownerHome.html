@@ -55,6 +55,18 @@
 					th:href="@{/delete/1/{ownerId}(ownerId=${currentOwner.ownerId})}"
 					style="color: red"><strong>Delete</strong></a></td>
 			</tr>
+			<tr th:each="currentPet : ${pets}">
+				<td th:text="${currentPet.petName}"/>
+				<td th:text="${currentPet.petType}"/>
+				<td th:text="${currentPet.petNeeds}"/>
+				
+			<td><a
+					th:href="@{/edit/4/{petId}(petId=${currentPet.petId})}"
+					style="color: limeGreen"><strong>Edit</strong></a></td>
+				<td><a
+					th:href="@{/delete/4/{petId}(petId=${currentPet.petId})}"
+					style="color: red"><strong>Delete</strong></a></td>
+			</tr>
 		</table>
 	</form>
 

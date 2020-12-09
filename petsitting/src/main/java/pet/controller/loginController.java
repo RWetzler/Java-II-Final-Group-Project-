@@ -26,7 +26,7 @@ public class loginController {
 	
 	
 
-	@PostMapping("/loginOwner/{Id}")
+	@PostMapping("/loginOwner/{ownerId}")
 	public String loginOwner(Owner owner, Model model) {
 		String userName = owner.getUserName();
 		String passWord = owner.getPassWord();
@@ -55,7 +55,7 @@ public class loginController {
 
 	return "sitterLoginIndex";
 }
-@PostMapping("/loginSitter/{Id}")
+@PostMapping("/loginSitter/{sitterId}")
 public String loginSitter(Sitter sitter, Model model) {
 	String userName = sitter.getUserName();
 	String passWord = sitter.getPassWord();

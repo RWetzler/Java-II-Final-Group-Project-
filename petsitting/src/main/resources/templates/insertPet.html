@@ -6,13 +6,13 @@
 </head>
 <body>
 	<form th:object="${newPet}"
-		th:action="@{/update/{id}(id=${newPet.petId})}" name="myForm" method='POST' onsubmit="return checkForm(this)">
+		th:action="@{/update/4/{petId}(petId=${newPet.petId})}" name="myForm" method='POST' onsubmit="return checkForm(this)">
 		Your Pet's Name: <input name="petName" size="20" th:field="*{petName}">
 		<br /> Your Pet's Breed: <input name="petType" size="10"
 			th:field="*{petType}"><br /> Any Extra Needs for your Pet?:
 		<input name="petNeeds" size="10" th:field="*{petNeeds}"><br />
  <fieldset>
-        <legend>Your addresses</legend>
+        <legend>Available Owners</legend>
         <ul>
             <li th:each="currentOwners : ${owners}">
                 <input type="radio" th:field="${owners}" th:value="${currentOwners.firstName}" />
