@@ -24,24 +24,21 @@ public class PetController{
 	
 	
 	
-	@GetMapping({"viewAll" })
+	@GetMapping({"/ownerHome" })
 	public String viewAllPets(Model model) {
 		if(pRepo.findAll().isEmpty()) {
 			return addNewPet(model);
 			}
 		model.addAttribute("pets",pRepo.findAll());
-		return "/ownerHome";
+		return "ownerHome";
 	}	
 
-
-	
-
-	@GetMapping("/inputPet")
+	@GetMapping("/insertPet")
 		public String addNewPet(Model model) {
 		Pet p = new Pet();
 		model.addAttribute("newPet", p);
 		if(oRepo.findAll().isEmpty()) {
-			return "/ownerHome";
+			return "ownerHome";
 			}
 		model.addAttribute("owners",oRepo.findAll());
 		return "insertPet";
@@ -52,20 +49,20 @@ public class PetController{
 	return "ownerHome";
 	
 }
-	@GetMapping("/edit/{id}")
-	public String showUpdatePet(@PathVariable("id") long id,Model model) {
+	@GetMapping("/edit/4/{petId}")
+	public String showUpdatePet(@PathVariable("petId") long id,Model model) {
 	Pet p = pRepo.findById(id).orElse(null);
 	model.addAttribute("newPet", p);
 	return "input";
 	}
-	@PostMapping("/update/{id}")
+	@PostMapping("/update/4/{petId}")
 	public String revisePet(Pet p, Model model) {
 	pRepo.save(p);
 	
-	return "/ownerHome";
+	return "ownerHome";
 	}
-	@GetMapping("/delete/{id}")
-	public String deletePet(@PathVariable("id") long id, Model model) {
+	@GetMapping("/delete/4/{petId}")
+	public String deletePet(@PathVariable("petId") long id, Model model) {
 	Pet p = pRepo.findById(id).orElse(null);
 	 pRepo.delete(p);
 	 return viewAllPets(model);
