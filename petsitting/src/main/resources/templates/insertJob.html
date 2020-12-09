@@ -15,9 +15,7 @@
 <body>
 
 	<br>
-	<form name="insertJob" th:object="${newJob}"
-		th:action="@{insertJob}"
-		method=POST>
+	<form name="insertJob" th:object="${newJob}" th:action="@{/update/3/{jobId}(jobId=${newJob.jobId})}" method='POST' onsubmit="return checkForm(this)">
 
 		<label>Owner Id: </label>
 		<div id="align">

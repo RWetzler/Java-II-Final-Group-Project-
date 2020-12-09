@@ -81,6 +81,7 @@ public class OwnerController {
 		
 	    return viewOwner(model);
 	}
+	
 	@RequestMapping(value = "booking")
 	@GetMapping({ "/booking" })
 	public String booking(Model model) {
@@ -90,14 +91,5 @@ public class OwnerController {
 		model.addAttribute("jobs", jobRepo.findAll());
 
 		return "booking";
-	}
-	
-	@RequestMapping(value = "insertJob")
-	@GetMapping("/insertJob")
-	public String addNewJob(Model model) {
-		Job job = new Job();
-
-		model.addAttribute("newJob", job);
-		return "insertJob";
 	}
 }

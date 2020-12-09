@@ -17,6 +17,7 @@
 			</tr>
 
 			<tr th:each="job : ${jobs}">
+				<td th:text="${job.jobId}" />
 				<td th:text="${job.ownerId}" />
 				<td th:text="${job.sitterId}" />
 				<td th:text="${job.feedbackToSitter}" />
