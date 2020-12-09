@@ -32,7 +32,7 @@ public class OwnerController {
 
 	@Autowired
 	SitterRepository sitterRepo;
-	
+
 	@Autowired
 	PetRepository petRepo;
 	
@@ -44,6 +44,7 @@ public class OwnerController {
 		}
 		
 		model.addAttribute("owners", ownerRepo.findAll());
+		model.addAttribute("pets", petRepo.findAll());
 
 		return "ownerHome";
 	}
@@ -94,4 +95,11 @@ public class OwnerController {
 
 		return "booking";
 	}
+	
+	//@GetMapping("/ownerHome")
+	//public String viewPets(Model model) {
+	//	model.addAttribute("pets", petRepo.findAll());
+
+	//	return "ownerHome";
+	//}
 }
