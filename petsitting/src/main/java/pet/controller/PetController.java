@@ -31,8 +31,8 @@ public class PetController{
 		if(repo.findAll().isEmpty()) {
 			return addNewPet(model);
 			}
-		model.addAttribute("owners",repo.findAll());
-		return "results";
+		model.addAttribute("loginOwner",repo.findAll());
+		return "loginIndex";
 	}
 	@GetMapping("/inputPet")
 		public String addNewPet(Model model) {
