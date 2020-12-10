@@ -102,4 +102,37 @@ public class OwnerController {
 
 	//	return "ownerHome";
 	//}
+	
+	@RequestMapping(value = "bookingcert")
+	@GetMapping({ "/bookingcert" })
+	public String bookingCert(Model model) {
+		
+		model.addAttribute("owners", ownerRepo.findAll());
+		model.addAttribute("sitters", sitterRepo.findByOrderByCertifications());
+		model.addAttribute("jobs", jobRepo.findAll());
+
+		return "booking";
+	}
+	
+	@RequestMapping(value = "bookingmax")
+	@GetMapping({ "/bookingmax" })
+	public String bookingMax(Model model) {
+		
+		model.addAttribute("owners", ownerRepo.findAll());
+		model.addAttribute("sitters", sitterRepo.findByOrderByMaxPets());
+		model.addAttribute("jobs", jobRepo.findAll());
+
+		return "booking";
+	}
+	
+	@RequestMapping(value = "bookingrating")
+	@GetMapping({ "/bookingrating" })
+	public String bookingRating(Model model) {
+		
+		model.addAttribute("owners", ownerRepo.findAll());
+		model.addAttribute("sitters", sitterRepo.findByOrderByAverageRating());
+		model.addAttribute("jobs", jobRepo.findAll());
+
+		return "booking";
+	}
 }
