@@ -24,27 +24,28 @@ public class PetController{
 	
 	
 	
-	/*
-	 * @GetMapping({"/ownerHome" }) public String viewAllPets(Model model) {
-	 * if(pRepo.findAll().isEmpty()) { return addNewPet(model); }
-	 * model.addAttribute("pets",pRepo.findAll()); return "ownerHome"; }
-	 */	
+	@GetMapping({"/ownerHome" })
+	public String viewAllPets(Model model) {
+		if(pRepo.findAll().isEmpty()) {
+			return addNewPet(model);
+			}
+		model.addAttribute("pets",pRepo.findAll());
+		return "ownerHome";
+	}	
 
-	@GetMapping("/insertPet/{ownerId}")
-		public String addNewPet(@PathVariable("ownerId") Long id, Model model, Pet p, Model modelp) {
-		p = new Pet();
+	@GetMapping("/insertPet")
+		public String addNewPet(Model model) {
+		Pet p = new Pet();
 		model.addAttribute("newPet", p);
-		Owner owner = oRepo.findById(id).orElse(null);
-		owner.setPet(p);
-		model.addAttribute("newOwner", owner);
+		if(oRepo.findAll().isEmpty()) {
+			return "ownerHome";
+			}
+		model.addAttribute("owners",oRepo.findAll());
 		return "insertPet";
 	}
-	@PostMapping("/inputPet/{ownerId}")
-	public String addNewPets(@PathVariable("ownerId") Long id, Model model, @ModelAttribute Pet p, Model modelp) {
+	@PostMapping("/inputPet")
+	public String addNewPet(@ModelAttribute Pet p, Model model) {
 	pRepo.save(p);
-	Owner owner = oRepo.findById(id).orElse(null);
-	owner.setPet(p);
-	oRepo.save(owner);
 	return "ownerHome";
 	
 }
@@ -64,6 +65,6 @@ public class PetController{
 	public String deletePet(@PathVariable("petId") long id, Model model) {
 	Pet p = pRepo.findById(id).orElse(null);
 	 pRepo.delete(p);
-	 return "ownerHome";
+	 return viewAllPets(model);
 	}
 }

@@ -11,7 +11,7 @@
 		<br /> Your Pet's Breed: <input name="petType" size="10"
 			th:field="*{petType}"><br /> Any Extra Needs for your Pet?:
 		<input name="petNeeds" size="10" th:field="*{petNeeds}"><br />
-<!--  <fieldset>
+ <fieldset>
         <legend>Available Owners</legend>
         <ul>
             <li th:each="currentOwners : ${owners}">
@@ -19,7 +19,7 @@
                 <label th:for="${owners}" th:text="${currentOwners.firstName}"></label>
             </li>
         </ul>
-    </fieldset> -->
+    </fieldset>
 		<input name="submit" type="submit" value="submit" />
 	</form>
 </body>
