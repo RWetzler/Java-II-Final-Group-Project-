@@ -11,58 +11,165 @@
 	crossorigin="anonymous">
 
 <title>Add Job</title>
+
+<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<style type="text/css">
+.form-style-10{
+	width:450px;
+	padding:30px;
+	margin:40px auto;
+	background: #FFF;
+	border-radius: 10px;
+	-webkit-border-radius:10px;
+	-moz-border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+}
+.form-style-10 .inner-wrap{
+	padding: 30px;
+	background: #F8F8F8;
+	border-radius: 6px;
+	margin-bottom: 15px;
+}
+.form-style-10 h1{
+	background: #2A88AD;
+	padding: 20px 30px 15px 30px;
+	margin: -30px -30px 30px -30px;
+	border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	color: #fff;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+	font: normal 30px 'Bitter', serif;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	border: 1px solid #257C9E;
+}
+.form-style-10 h1 > span{
+	display: block;
+	margin-top: 2px;
+	font: 13px Arial, Helvetica, sans-serif;
+}
+.form-style-10 label{
+	display: block;
+	font: 13px Arial, Helvetica, sans-serif;
+	color: #888;
+	margin-bottom: 15px;
+}
+.form-style-10 input[type="text"],
+.form-style-10 input[type="date"],
+.form-style-10 input[type="datetime"],
+.form-style-10 input[type="email"],
+.form-style-10 input[type="number"],
+.form-style-10 input[type="search"],
+.form-style-10 input[type="time"],
+.form-style-10 input[type="url"],
+.form-style-10 input[type="password"],
+.form-style-10 textarea,
+.form-style-10 select {
+	display: block;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	padding: 8px;
+	border-radius: 6px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border: 2px solid #fff;
+	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+}
+
+.form-style-10 .section{
+	font: normal 20px 'Bitter', serif;
+	color: #2A88AD;
+	margin-bottom: 5px;
+}
+.form-style-10 .section span {
+	background: #2A88AD;
+	padding: 5px 10px 5px 10px;
+	position: absolute;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border: 4px solid #fff;
+	font-size: 14px;
+	margin-left: -45px;
+	color: #fff;
+	margin-top: -3px;
+}
+.form-style-10 input[type="button"], 
+.form-style-10 input[type="submit"]{
+	background: #2A88AD;
+	padding: 8px 20px 8px 20px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	color: #fff;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+	font: normal 30px 'Bitter', serif;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+	border: 1px solid #257C9E;
+	font-size: 15px;
+}
+.form-style-10 input[type="button"]:hover, 
+.form-style-10 input[type="submit"]:hover{
+	background: #2A6881;
+	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+}
+.form-style-10 .privacy-policy{
+	float: right;
+	width: 250px;
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #4D4D4D;
+	margin-top: 10px;
+	text-align: right;
+}
+</style>
 </head>
 <body>
-
 	<br>
+	<div class="form-style-10">
+	<h1>View Job Details</h1>
 	<form name="insertJob" th:object="${newJob}" th:action="@{/update/3/{jobId}(jobId=${newJob.jobId})}" method='POST' onsubmit="return checkForm(this)">
 
-		<label>Owner Id: </label>
-		<div id="align">
-			<input name="ownerId" size="20" th:field="*{ownerId}">
-		</div>
-		<br /> <label>Sitter Id: </label>
-		<div id="align">
-			<input name="sitterId" size="20" th:field="*{sitterId}">
-		</div>
-		<br /> <label>Rating: </label>
-		<div id="align">
-			<input name="rating" size="20" th:field="*{rating}">
-		</div>
-		<br /> <label>Pet Needs: </label>
-		<div id="align">
-			<input name="feedbackToSitter" size="20" th:field="*{feedbackToSitter}">
-		</div>
-		<br /> <label>Status: </label>
-		<div id="align">
-			<input name="status" size="20" th:field="*{status}">
-		</div>
-		<br /> <label>Job Date: </label>
-		<div id="align">
-			<input name="jDate" size="20" th:field="*{jDate}">
-		</div>
-		<br /> <label>Job Time: </label>
-		<div id="align">
-			<input name="jTime" size="20" th:field="*{jTime}">
-		</div>
-		<br /> <br> <input name="submit" type="submit" value="Submit" />
-	</form>
+		 <div class="section"><span>1</span>Job Identifiers</div>
+    <div class="inner-wrap">
+        <label>Owner ID<input type="text" name="field1" th:field="*{ownerId}" /></label>
+        <label>Sitter ID<input type="text" name="field2" th:field="*{sitterId}" /></label>
+    </div>
 
-	<a href="index.html">Return to Login Page</a>
-
-
-	<!-- Scripts -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+    <div class="section"><span>2</span>When</div>
+    <div class="inner-wrap">
+        <label>Date <input type="text" name="field3" th:field="*{jDate}" /></label>
+        <label>Time <input type="text" name="field4" th:field="*{jTime}"/></label>
+	</div>
+	
+	<div class="section"><span>3</span>Status</div>
+	<div class="inner-wrap">
+		<label>Job Status<input type="text" name="field6" th:field="*{status}"/></label>
+    </div>
+    
+    <div class="section"><span>4</span>Quality Review</div>
+        <div class="inner-wrap">
+        <label>Rating <input type="text" name="field9" th:field="*{rating}"/></label>
+        <label>Customer Feedback <input type="text" name="field10" th:field="*{feedbackToSitter}" /></label>
+    </div>
+    <div class="button-section">
+     <input type="submit" name="Submit" />
+	 <br>
+	 <p><a style="font-size: 12px" href="index.html"><strong>Return Home</strong></a>
+    </div>
+</form>
+</div>
 
 </body>
 </html>
