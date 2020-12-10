@@ -10,7 +10,7 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 
-<title>Owner Homepage</title>
+<title>Owner's Pet List</title>
 
 </head>
 <body>
@@ -33,43 +33,12 @@
 	<form>
 		<table id="ownerPets">
 			<tr>
-				<th>Account Number:</th>
-				<th>First Name:</th>
-				<th>Last Name:</th>
-				<th>Phone:</th>
-				<th>Email:</th>
-				<th>Alternate Contact:</th>
-			</tr>
-
-			<tr th:each="currentOwner : ${owners}">
-				<td th:text="${currentOwner.ownerId}" />
-				<td th:text="${currentOwner.firstName}" />
-				<td th:text="${currentOwner.lastName}" />
-				<td th:text="${currentOwner.phone}" />
-				<td th:text="${currentOwner.email}" />
-				<td th:text="${currentOwner.miscContact}" />
-				<td><a
-					th:href="@{/edit/1/{ownerId}(ownerId=${currentOwner.ownerId})}"
-					style="color: limeGreen"><strong>Edit</strong></a></td>
-				<td><a
-					th:href="@{/delete/1/{ownerId}(ownerId=${currentOwner.ownerId})}"
-					style="color: red"><strong>Delete</strong></a></td>
-			</tr>
-
-		</table>
-		</form>
-		<br>
-		<form>
-		<table  id="ownerPets">
-			<tr>
-				<th>Pet ID:</th>
 				<th>Pet Name:</th>
 				<th>Pet Type:</th>
 				<th>Pet Needs:</th>
 			</tr>
-			
+
 			<tr th:each="currentPet : ${pets}">
-				<td th:text="${currentPet.petId}" />
 				<td th:text="${currentPet.petName}"/>
 				<td th:text="${currentPet.petType}"/>
 				<td th:text="${currentPet.petNeeds}"/>

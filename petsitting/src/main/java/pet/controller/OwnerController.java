@@ -32,7 +32,7 @@ public class OwnerController {
 
 	@Autowired
 	SitterRepository sitterRepo;
-	
+
 	@Autowired
 	PetRepository petRepo;
 	
@@ -44,6 +44,7 @@ public class OwnerController {
 		}
 		
 		model.addAttribute("owners", ownerRepo.findAll());
+		model.addAttribute("pets", petRepo.findAll());
 
 		return "ownerHome";
 	}
@@ -90,6 +91,46 @@ public class OwnerController {
 		
 		model.addAttribute("owners", ownerRepo.findAll());
 		model.addAttribute("sitters", sitterRepo.findAll());
+		model.addAttribute("jobs", jobRepo.findAll());
+
+		return "booking";
+	}
+	
+	//@GetMapping("/ownerHome")
+	//public String viewPets(Model model) {
+	//	model.addAttribute("pets", petRepo.findAll());
+
+	//	return "ownerHome";
+	//}
+	
+	@RequestMapping(value = "bookingcert")
+	@GetMapping({ "/bookingcert" })
+	public String bookingCert(Model model) {
+		
+		model.addAttribute("owners", ownerRepo.findAll());
+		model.addAttribute("sitters", sitterRepo.findByOrderByCertifications());
+		model.addAttribute("jobs", jobRepo.findAll());
+
+		return "booking";
+	}
+	
+	@RequestMapping(value = "bookingmax")
+	@GetMapping({ "/bookingmax" })
+	public String bookingMax(Model model) {
+		
+		model.addAttribute("owners", ownerRepo.findAll());
+		model.addAttribute("sitters", sitterRepo.findByOrderByMaxPets());
+		model.addAttribute("jobs", jobRepo.findAll());
+
+		return "booking";
+	}
+	
+	@RequestMapping(value = "bookingrating")
+	@GetMapping({ "/bookingrating" })
+	public String bookingRating(Model model) {
+		
+		model.addAttribute("owners", ownerRepo.findAll());
+		model.addAttribute("sitters", sitterRepo.findByOrderByAverageRating());
 		model.addAttribute("jobs", jobRepo.findAll());
 
 		return "booking";
