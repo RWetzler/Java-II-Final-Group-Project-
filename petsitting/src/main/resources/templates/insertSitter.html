@@ -158,7 +158,7 @@
 	
 	<div class="section"><span>3</span>About Yourself</div>
 	<div class="inner-wrap">
-		<label>How Many Pets Can You Handle? <input type="text" name="field6" th:field="*{phone}"/></label>
+		<label>How Many Pets Can You Handle? <input type="number" min="1" name="field6" th:field="*{maxPets}"/></label>
     	<label>Any Certifications? <input type="text" name="field7" th:field="*{certifications}"/></label>
     	<label>What Should We Display in Your Bio? <textarea  rows="4" cols="50" type="text" name="field8" th:field="*{biography}"/></textarea></label>
     </div>

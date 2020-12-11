@@ -4,44 +4,77 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+
 <!-- Bootstrap -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-
+	
 <title>Owner Homepage</title>
+<style>
+#pets {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#pets td, #pets th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  width:30px;
+}
+
+
+#pets tr:nth-child(even){background-color: #f2f2f2;}
+
+#pets tr:hover {background-color: #ddd;}
+
+#pets th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #13A2DB;
+  color: white;
+}
+
+
+
+body{
+	background-color: #F0F8FB;
+}
+</style>
+
 
 </head>
 <body>
 
-	<h1>Welcome Back</h1>
-	<h2>View Your Pets Below</h2>
-	<form>
-		<table id="numOfPets">
-			<tr>
-				<th>Number of Pets:</th>
-			</tr>
+	<h1 style="text-align: center">Welcome Back</h1>
+	<p style="text-align: center">View All Owner and Pet Info Below</p>
 
-			<tr th:each="currentOwner : ${owners}">
-				<td th:text="${currentOwner.numOfPets }" />
+<br>
+<div class="container">
 
 
-			</tr>
-		</table>
-	</form>
-	<form>
-		<table id="ownerPets">
-			<tr>
-				<th>Account Number:</th>
-				<th>First Name:</th>
-				<th>Last Name:</th>
-				<th>Phone:</th>
-				<th>Email:</th>
-				<th>Alternate Contact:</th>
-			</tr>
+   <h3 style="text-align: center" >Owner Database</h3>
+     <table id= "pets">
 
-			<tr th:each="currentOwner : ${owners}">
+    
+      <tr>
+        <th scope="col">Account Number</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+        <th scope="col">Alternate Contact</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+
+	
+
+      
+      <tr th:each="currentOwner : ${owners}">
 				<td th:text="${currentOwner.ownerId}" />
 				<td th:text="${currentOwner.firstName}" />
 				<td th:text="${currentOwner.lastName}" />
@@ -54,42 +87,52 @@
 				<td><a
 					th:href="@{/delete/1/{ownerId}(ownerId=${currentOwner.ownerId})}"
 					style="color: red"><strong>Delete</strong></a></td>
-			</tr>
+      </tr>
 
-		</table>
-		</form>
-		<br>
-		<form>
-		<table  id="ownerPets">
-			<tr>
-				<th>Pet ID:</th>
-				<th>Pet Name:</th>
-				<th>Pet Type:</th>
-				<th>Pet Needs:</th>
-			</tr>
-			
-			<tr th:each="currentPet : ${pets}">
+	</table>
+	</div>
+
+
+
+       <br>
+	   
+
+<div class="container">
+<div id="row-class">
+  <table id= "pets">
+  		<h3 style="text-align: center" >Pet Database</h3>
+
+      <tr>
+        <th scope="col">Pet ID</th>
+        <th scope="col">Pet Name</th>
+        <th scope="col">Pet Type </th>
+        <th scope="col">Pet Needs</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+
+      <tr th:each="currentPet : ${pets}">
 				<td th:text="${currentPet.petId}" />
 				<td th:text="${currentPet.petName}"/>
 				<td th:text="${currentPet.petType}"/>
 				<td th:text="${currentPet.petNeeds}"/>
 				
-			<td><a
-					th:href="@{/edit/4/{petId}(petId=${currentPet.petId})}"
-					style="color: limeGreen"><strong>Edit</strong></a></td>
-				<td><a
-					th:href="@{/delete/4/{petId}(petId=${currentPet.petId})}"
-					style="color: red"><strong>Delete</strong></a></td>
-			</tr>
-		</table>
-	</form>
+      	<td><a th:href="@{/edit/4/{petId}(petId=${currentPet.petId})}" style="color: limeGreen"><strong>Edit</strong></a></td>
+		<td><a th:href="@{/delete/4/{petId}(petId=${currentPet.petId})}" style="color: red"><strong>Delete</strong></a></td>
+	 </tr>
 
-	<a href="/booking">Click Here to Book</a>
-	<a href="/insertPet">Click Here to add your Pet</a>
-	<a href="/rateSitter">Click Here to Rate a Sitter</a>
-	<a href="/index.html">Return Home</a>
+  </table>
+</div>
+</div>
+<br>
+<div class="container" style="float:center;">
 
-	<!-- Scripts -->
+	<a href="/insertPet" class="btn btn-primary">Click Here to add your Pet</a>
+	<a href="/rateSitter" class="btn btn-primary">Click Here to Rate a Sitter</a>
+	<a href="/index.html" class="btn btn-primary">Return Home</a>
+	</div>
+	<br>
+		<!-- Scripts -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
@@ -101,5 +144,7 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+	
+	
 </body>
 </html>

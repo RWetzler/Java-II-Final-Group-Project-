@@ -80,7 +80,7 @@ public class loginController {
 		return "sitterLoginIndex";
 	}
 
-	@PostMapping("/loginSitter/{sitterId}")
+	@PostMapping("/sitterHome/{sitterId}")
 	public String loginSitter(Sitter sitter, Model model) {
 		String userName = sitter.getUserName();
 		String passWord = sitter.getPassWord();
@@ -103,6 +103,13 @@ public class loginController {
 		}
 
 		return findSitter(model);
+	}
+	
+	@GetMapping("/viewSitter/{sitterId}")
+	public String viewSitter(Model model) {
+		model.addAttribute("sitters", sitterRepo.findAll());
+
+		return "sitterHome";
 	}
 
 }
