@@ -11,55 +11,98 @@
 	crossorigin="anonymous">
 
 <title>Sitter Homepage</title>
+<style>
+#sitter {
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 50%;
+}
 
+#sitter td, #sitter th {
+	border: 1px solid #ddd;
+	padding: 8px;
+	width: 25px;
+}
+
+#sitter tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#sitter tr:hover {
+	background-color: #ddd;
+}
+
+#sitter th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #13A2DB;
+	color: white;
+}
+
+table {
+	margin: auto;
+}
+
+body {
+	background-color: #F0F8FB;
+}
+</style>
 </head>
 <body>
 
-	<h1>Welcome Back</h1>
-	<h2>View Your Account Below</h2>
+	<h1 style="text-align: center">Welcome Back</h1>
+	<p style="text-align: center">View Your Account Below</p>
 
-	<form>
-		<table id="sitterBio">
-			<tr>
-				<th>First Name:</th>
-				<th>Last Name:</th>
-				<th>Phone:</th>
-				<th>Email:</th>
-				<th>Other Contacts:</th>
-				<th>Certifications:</th>
-				<th>Maximum Pets:</th>
-				<th>Biography:</th>
-				<th>Average Rating:</th>
+	<br>
+	<h3 style="text-align: center">Sitter Database</h3>
+	<table id="sitter">
+		<tr>
+			<th>Account Number</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Phone</th>
+			<th>Email</th>
+			<th>Other Contacts</th>
+			<th>Certifications</th>
+			<th>Maximum Pets</th>
+			<th>Biography</th>
+			<th>Average Rating</th>
+			<th>Edit</th>
+			<th>Delete</th>
 
-			</tr>
+		</tr>
 
-			<tr th:each="sitter : ${sitters}">
-				<td th:text="${sitter.sitterId}" />
-				<td th:text="${sitter.firstName}" />
-				<td th:text="${sitter.lastName}" />
-				<td th:text="${sitter.phone}" />
-				<td th:text="${sitter.email}" />
-				<td th:text="${sitter.miscContact}" />
-				<td th:text="${sitter.certifications}" />
-				<td th:text="${sitter.maxPets}" />
-				<td th:text="${sitter.biography}" />
-				<td th:text="${sitter.averageRating}" />
+		<tr th:each="sitter : ${sitters}">
+			<td th:text="${sitter.sitterId}" />
+			<td th:text="${sitter.firstName}" />
+			<td th:text="${sitter.lastName}" />
+			<td th:text="${sitter.phone}" />
+			<td th:text="${sitter.email}" />
+			<td th:text="${sitter.miscContact}" />
+			<td th:text="${sitter.certifications}" />
+			<td th:text="${sitter.maxPets}" />
+			<td th:text="${sitter.biography}" />
+			<td th:text="${sitter.averageRating}" />
 
 
-				<td><a
-					th:href="@{/edit/2/{sitterId}(sitterId=${sitter.sitterId})}"
-					style="color: limeGreen"><strong>Edit</strong></a></td>
-				<td><a
-					th:href="@{/delete/2/{sitterId}(sitterId=${sitter.sitterId})}"
-					style="color: red"><strong>Delete</strong></a></td>
-			</tr>
-		</table>
-	</form>
+			<td><a
+				th:href="@{/edit/2/{sitterId}(sitterId=${sitter.sitterId})}"
+				style="color: limeGreen"><strong>Edit</strong></a></td>
+			<td><a
+				th:href="@{/delete/2/{sitterId}(sitterId=${sitter.sitterId})}"
+				style="color: red"><strong>Delete</strong></a></td>
+		</tr>
+	</table>
 
-	<a href="/viewJobs">Click Here to View Jobs</a>
-	<a href="/rateOwner">Click Here to Rate an Owner</a>
-	<a href="/index.html">Return Home</a>
-
+	<br>
+	<div class="container" style="float: center;">
+		<a href="/viewJobs" class="btn btn-primary">Click Here to View
+			Jobs</a> <a href="/rateOwner" class="btn btn-primary">Click Here to
+			Rate an Owner</a> <a href="/index.html" class="btn btn-primary">Return
+			Home</a>
+	</div>
+	<br>
 	<!-- Scripts -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
