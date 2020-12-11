@@ -170,7 +170,7 @@ input[type=submit] {
 <br><br><br><br>
 <div class="login">
   <h1>Sign In to Your Sitter Homepage</h1>
-  <form style="float:center" th:object="${loginSitter}" th:action="@{/loginSitter/{sitterId}(sitterId=${loginSitter.sitterId})}" name = "myForm" method='POST' onsubmit = "return checkForm(this)">
+  <form style="float:center" th:object="${loginSitter}" th:action="@{/sitterHome/{sitterId}(sitterId=${loginSitter.sitterId})}" name = "myForm" method='POST' onsubmit = "return checkForm(this)">
     <p><input type="text" name="login" value="" placeholder="Username" th:field="*{userName}"></p>
     <p><input type="password" name="password" value="" placeholder="Password" th:field="*{passWord}"></p>
     <p class="submit"><input type="submit" name="commit" value="Login"></p>

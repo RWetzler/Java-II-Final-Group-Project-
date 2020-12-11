@@ -105,11 +105,11 @@ public class loginController {
 		return findSitter(model);
 	}
 	
-	@GetMapping("/viewSitter/{ownerId}")
+	@GetMapping("/viewSitter/{sitterId}")
 	public String viewSitter(Model model) {
 		model.addAttribute("sitters", sitterRepo.findAll());
 
-		return "ownerHome";
+		return "sitterHome";
 	}
 
 }
